@@ -11,42 +11,38 @@ struct ContentView: View {
     @State private var messageString = ""
     
     var body: some View {
+        
+        VStack {
             
-            VStack {
-                
-                Spacer()
-                
-                Text(messageString)
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .minimumScaleFactor(0.5)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
-                    .frame(height: 150)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                
-                Spacer()
-                
-                Divider()
-                
-                HStack {
-                    Button("Awesome") {
-                        messageString = "You Are Awesome!"
-                    }
-                    .buttonStyle(.borderedProminent)
-                    
-                    Spacer()
-                    
-                    Button("Great") {
-                        messageString = "You Are Great!"
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+            Spacer()
+            
+            Text(messageString)
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .minimumScaleFactor(0.5)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .frame(height: 150)
+                .frame(maxWidth: .infinity)
                 .padding()
-                
-            }
             
+            Spacer()
+            
+            Button("Show Message") {
+                let message1 = "You Are Awesome!"
+                let message2 = "You Are Great!"
+                
+                if messageString == message1 {
+                    messageString = message2
+                } else {
+                    messageString = message1
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            
+        }
+        .padding()
+        
     }
 }
 
