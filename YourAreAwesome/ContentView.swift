@@ -9,10 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var messageString = ""
+    @State private var imageName = ""
     
     var body: some View {
         
         VStack {
+            
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(30)
+                .shadow(radius: 30)
+                .padding()
             
             Spacer()
             
@@ -32,13 +40,10 @@ struct ContentView: View {
                 let message1 = "You Are Awesome!"
                 let message2 = "You Are Great!"
                 
-//                if messageString == message1 {
-//                    messageString = message2
-//                } else {
-//                    messageString = message1
-//                }
-                // ternary version
+                // ternary operator
                 messageString = (messageString == message1 ? message2 : message1)
+                
+                imageName = (imageName == "image0" ? "image1" : "image0")
             }
             .buttonStyle(.borderedProminent)
             
